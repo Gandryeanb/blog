@@ -25,9 +25,9 @@
       <comment @resetpage="getdata" v-bind:data="comments" v-bind:currentUser="currentUserId" v-bind:log="isAlreadyLogin"></comment>
     </div>
     <div class="ui form" style="margin-top:20px;">
-      <input placeholder="Your comments.." v-bind:readonly="isAlreadyLogin" v-model="commentVal">
+      <input placeholder="Your comments.." v-bind:readonly="!isAlreadyLogin" v-model="commentVal">
     </div>
-      <button v-bind:class="{disabled : isAlreadyLogin}" class="ui teal right floated button" style="margin-top:10px; margin-bottom:60px;" v-on:click="addComment">Add comment</button>
+      <button v-bind:class="{disabled : !isAlreadyLogin}" class="ui teal right floated button" style="margin-top:10px; margin-bottom:60px;" v-on:click="addComment">Add comment</button>
   </div>
 </template>
 
@@ -91,6 +91,8 @@ export default {
     let token = window.localStorage.getItem('token')
     if (token) {
       this.whoIsThis()
+    } else {
+      this.isAlreadyLogin = false
     }
   },
   methods: {
