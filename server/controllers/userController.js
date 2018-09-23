@@ -1,5 +1,5 @@
 const User = require('../models/userModel')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 class UserController {
@@ -24,7 +24,7 @@ class UserController {
         })
         .catch(err => {            
             res.status(500).json({
-                status : `failed xxx`,
+                status : `failed create account`,
                 message : err
             })
         })
