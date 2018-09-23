@@ -33,7 +33,7 @@ export default {
     updateArticle () {
       let self = this
       axios({
-        url: `http://localhost:3000/articles/${this.data._id}`,
+        url: `http://localhost:3000/${this.data._id}`,
         method: 'put',
         data: {
           title: this.titleVal,

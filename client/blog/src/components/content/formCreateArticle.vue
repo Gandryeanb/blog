@@ -35,6 +35,7 @@ export default {
         }
       })
         .then(response => {
+          console.log('berhasil create')
           self.$emit('btn', false)
           self.$emit('resetpage')
         })

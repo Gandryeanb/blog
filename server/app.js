@@ -6,7 +6,7 @@ const mongoose = require ('mongoose')
 const port = process.env.PORT
 const database = process.env.BD_TTD || 'Blog'
 const db = mongoose.connection;
-mongoose.connect(process.env.DB_KEY);
+mongoose.connect(process.env.DB_KEY, {useNewUrlParser:true});
 // mongoose.connect(`mongodb://localhost/${database}`); for testing
 
 app.use(cors())
